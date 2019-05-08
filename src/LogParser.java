@@ -24,7 +24,7 @@ public class LogParser {
 
     private final static String sepChr = "_";
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private static String[] targetPortArray = { "20", "21", "22", "443", "135", "137", "25" };
+    private static String[] targetPortArray;
     private static Map<String, String> COUNTRY_CODE = new HashMap<>();;
     private static String PERIOD;
     private static String ACCESSCOUNT;
@@ -41,6 +41,14 @@ public class LogParser {
         ACCESSCOUNT = "2";
         // 검색 대상이 될 port. 단일 포트를 입력하거나 ,로 구분하여 여러개 입력 가능
         SEARCHPORT = "20,21,22,443,135,137,25";
+        //2차 검색에서 사용할 포트 정의
+        String[] tmpArray = { "20", "21", "22", "443", "135", "137", "25" };
+
+        targetPortArray = new String[tmpArray.length];
+        int i = 0;
+        for (String port : tmpArray) {
+            targetPortArray[i++] = port;
+        }
 
         // 검출된 모든 source IP정보를 담아놓을 리스트, 자연스러운 중복데이터 제거를 위해  Map 형식으로 선언함
         Map<String, Object> detectedSourceIpMap = new HashMap<>();

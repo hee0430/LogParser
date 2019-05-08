@@ -1,0 +1,3 @@
+1. https://www.draw.io/ 접속
+2. open Existing diagram 선택
+3. 파일 선택
